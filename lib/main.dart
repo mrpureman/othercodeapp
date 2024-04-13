@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -29,33 +30,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Widget>[
-        Container(
-          height: 50,
-          child: Text('Entry A'),
-        ),
-        Container(
-          height: 50,
-          child: Text('Entry B'),
-        ),
-        Container(
-          height: 50,
-          child: Text('Entry C'),
-        ),
-      ],
-    ));
+      body: ListView(
+        children: <Widget>[
+          Card(
+              child: ListTile(
+            title: Text('Тряска'),
+            onTap: () {},
+            trailing: Icon(Icons.arrow_forward_sharp),
+          )),
+          Card(
+              child: ListTile(
+            title: Text('Увеличение'),
+            onTap: () {},
+            trailing: Icon(Icons.arrow_forward_sharp),
+          )),
+          Card(
+              child: ListTile(
+            title: Text('Стикеры и анимация списка'),
+            onTap: () {},
+            trailing: Icon(Icons.arrow_forward_sharp),
+          )),
+          Card(
+              child: ListTile(
+            title: Text('Увеличение картинки в карточку'),
+            onTap: () {},
+            trailing: Icon(Icons.arrow_forward_sharp),
+          )),
+        ],
+      ),
+    );
   }
 }
