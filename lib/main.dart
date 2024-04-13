@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text('Тряска'),
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => EditWithEffect()));
+                  MaterialPageRoute(builder: (context) => MyCustomForm()));
             },
             trailing: Icon(Icons.arrow_forward_sharp),
           )),
@@ -74,8 +74,34 @@ class EditWithEffect extends StatelessWidget {
   const EditWithEffect({super.key});
   @override
   Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(title: Text("Тряска")));
+  }
+}
+
+class MyCustomForm extends StatelessWidget {
+  const MyCustomForm({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Тряска")),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Введи текст',
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+          ),
+        ],
+      ),
     );
   }
 }
