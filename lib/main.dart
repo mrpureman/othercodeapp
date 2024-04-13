@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Card(
               child: ListTile(
             title: Text('Тряска'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => EditWithEffect()));
+            },
             trailing: Icon(Icons.arrow_forward_sharp),
           )),
           Card(
@@ -61,6 +66,16 @@ class _MyHomePageState extends State<MyHomePage> {
           )),
         ],
       ),
+    );
+  }
+}
+
+class EditWithEffect extends StatelessWidget {
+  const EditWithEffect({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Тряска")),
     );
   }
 }
