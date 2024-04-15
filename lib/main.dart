@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        '/inputWidget': (context) => EditWithEffect(),
+      },
     );
   }
 }
@@ -41,8 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListTile(
             title: Text('Тряска'),
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MyCustomForm()));
+              Navigator.of(context).pushNamed('/inputWidget');
             },
             trailing: Icon(Icons.arrow_forward_sharp),
           )),
@@ -70,17 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class EditWithEffect extends StatelessWidget {
+class EditWithEffect extends StatefulWidget {
   const EditWithEffect({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Тряска")));
-  }
+  State<EditWithEffect> createState() => _EditWithEffectState();
 }
 
-class MyCustomForm extends StatelessWidget {
-  const MyCustomForm({super.key});
-
+class _EditWithEffectState extends State<EditWithEffect> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
